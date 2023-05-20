@@ -18,7 +18,7 @@ body {
     max-width: 100%;
     width: 750px;
     border: 3px solid #b6bdbd;
-    height: 45%;
+    height: 60%;
     padding: 1.5em;
     border-radius: 9px;
     background: #fff;
@@ -30,12 +30,5 @@ button,
 a {
     cursor: pointer;
     max-width: 100%;
-}
-
-button {
     width: 30%;
-}
-
-a {
-    width: 15%;
 }
