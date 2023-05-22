@@ -18,11 +18,11 @@ const App = () => {
   const { data=[], error, refetch } = useFetchRandomQuoteQuery();
 
   useEffect(() => {
-    refetch();
+    refetch(); // refetch() ignores cache and makes fetches the API data/Makes the API call
   }, []);
 
   const handleClick = () => {
-    refetch(); // Call dispatch with the refetch action
+    refetch(); // refetch() ignores cache and makes fetches the API data/Makes the API call
   };
 
   const quote: Quote = data[0]
