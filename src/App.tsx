@@ -10,6 +10,8 @@ import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import NavBar from './components/NavBar'
+
+// react icons
 import { FaRetweet } from 'react-icons/fa';
 import { TbHandClick } from 'react-icons/tb';
 
@@ -17,12 +19,14 @@ import { TbHandClick } from 'react-icons/tb';
 const App = () => {
   const { data=[], error, refetch } = useFetchRandomQuoteQuery();
 
+  // useEffect runs once when the component mounts, it calls refetch() to fetch the initial random quote from the API 
   useEffect(() => {
-    refetch(); // refetch() ignores cache and makes fetches the API data/Makes the API call
+    refetch(); // refetch() ignores cache and fetches the API data/Makes the API call
   }, []);
 
+  // onClick handler that calls refetch() to fetch a new random quote from the API
   const handleClick = () => {
-    refetch(); // refetch() ignores cache and makes fetches the API data/Makes the API call
+    refetch(); // refetch() ignores cache and fetches a new quote
   };
 
   const quote: Quote = data[0]
