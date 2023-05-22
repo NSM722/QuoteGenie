@@ -1,5 +1,12 @@
-import { useState, useEffect } from 'react';
-import axios from 'axios';
+import { useEffect } from 'react';
+// import axios from 'axios';
+// import { useDispatch } from 'react-redux'
+import { useFetchRandomQuoteQuery } from './features/quotes/qouteApiSlice';
+// import { Dispatch, AnyAction } from 'redux'; // Import Dispatch and AnyAction
+// import { RootState } from './app/store';
+// import { getQuote } from './features/quotes/qouteSlice';
+import { Quote } from './features/quotes/qouteApiSlice';
+
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -13,41 +20,19 @@ import { FaRetweet } from 'react-icons/fa';
 import { TbHandClick } from 'react-icons/tb';
 
 
-const BASEURL: string = `https://api.quotable.io/quotes/random`
-
-interface ApiData {
-  _id: string;
-  content: string;
-  author: string;
-  tags: string [];
-  authorSlug: string;
-  length: number;
-  dateAdded: string;
-  dateModified: string;
-}
-
 const App = () => {
-
-  const [quoteData, setQuoteData] = useState<ApiData[]>([])
-  const [error, setError] = useState<string>('')
+  const { data=[], error, refetch } = useFetchRandomQuoteQuery();
+  console.log(data)
 
   useEffect(() => {
-    getQuote(BASEURL)
-  }, [])
-  
-  const getQuote = async (url: string) => {
-    try {
-      const response = await axios.get<ApiData[]>(url)
-      // console.log(response.data)
-      setQuoteData(response.data)
-    } catch (error) {
-      setError('Failed to fetch the quote, please try again...')
-    }
-  }
+    refetch();
+  }, []);
 
   const handleClick = () => {
-    getQuote(BASEURL)
-  }
+    refetch(); // Call dispatch with the refetch action
+  };
+
+  const quote: Quote = data[0]
 
   return (
     <>
@@ -58,7 +43,7 @@ const App = () => {
             error ?
             ( 
               <Row>
-                <p className="fs-2 fw-bolder">{error}</p>
+                <p className="fs-2 fw-bolder">Oh no, there was an error</p>
               </Row> 
             )
             :
@@ -66,11 +51,13 @@ const App = () => {
                 <>
                   <Row className="justify-content-start text-wrap">
                     {/* id-text - On first load, my quote machine displays a random quote in the element */}
-                    {quoteData.length > 0 && quoteData[0]?.content }
+                    { quote?.content}
+
+
                   </Row>
                   <Row className="justify-content-end fw-semibold fst-italic">
                     {/* id-author  - On first load, my quote machine displays the random quote's author */}
-                    -- {quoteData.length > 0 && quoteData[0]?.author} --
+                    -- { quote?.author } --
                   </Row>
                   <Button 
                     // id-new-quote
