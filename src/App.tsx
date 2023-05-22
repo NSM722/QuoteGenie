@@ -34,7 +34,7 @@ const App = () => {
   return (
     <>
       <NavBar />
-      <div className="main-wrapper">
+      <main className="main-wrapper">
         <Container className="wrapper d-flex flex-column justify-content-between lh-sm">
           {
             error ?
@@ -76,7 +76,7 @@ const App = () => {
             )
           }
         </Container>
-      </div>
+      </main>
     </>
   )
 }
