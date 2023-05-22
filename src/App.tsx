@@ -1,28 +1,21 @@
 import { useEffect } from 'react';
-// import axios from 'axios';
-// import { useDispatch } from 'react-redux'
 import { useFetchRandomQuoteQuery } from './features/quotes/qouteApiSlice';
-// import { Dispatch, AnyAction } from 'redux'; // Import Dispatch and AnyAction
-// import { RootState } from './app/store';
-// import { getQuote } from './features/quotes/qouteSlice';
 import { Quote } from './features/quotes/qouteApiSlice';
 
+
+// styles 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import NavBar from './components/NavBar'
-
-
 import { FaRetweet } from 'react-icons/fa';
 import { TbHandClick } from 'react-icons/tb';
 
 
 const App = () => {
   const { data=[], error, refetch } = useFetchRandomQuoteQuery();
-  console.log(data)
 
   useEffect(() => {
     refetch();
@@ -47,13 +40,11 @@ const App = () => {
               </Row> 
             )
             :
-              (
+            (
                 <>
                   <Row className="justify-content-start text-wrap">
                     {/* id-text - On first load, my quote machine displays a random quote in the element */}
                     { quote?.content}
-
-
                   </Row>
                   <Row className="justify-content-end fw-semibold fst-italic">
                     {/* id-author  - On first load, my quote machine displays the random quote's author */}
@@ -78,7 +69,7 @@ const App = () => {
                     tweet <FaRetweet />
                   </a>
                 </>
-              )
+            )
           }
         </Container>
       </div>

@@ -16,12 +16,13 @@ export interface Quote {
 export const quoteApi = createApi({
   reducerPath: 'quoteApi',
   baseQuery: fetchBaseQuery({ baseUrl: 'https://api.quotable.io' }),
-  // define query
+  // define query point 
   endpoints(builder) {
     return {
-      fetchRandomQuote: builder.query<Quote[], void>({
+      fetchRandomQuote: builder.query<Quote[], number | number | void>({
         // specify path to fetch data from
-        query: () => '/quotes/random',
+        // added min & max length query parameters 
+        query: (minLength=80, maxLength=100) => `/quotes/random?minLength=${minLength}&maxLength=${maxLength}`,
       }),
     };
   },
