@@ -20,3 +20,7 @@ One can retweet a quote via the `TWEET` button
 [React Icons](https://react-icons.github.io/react-icons/ "read docs")
 
 [React Bootstrap](https://react-bootstrap.github.io/getting-started/introduction "read docs")
+
+## Recommended Patterns
+
+[Redux Ducks Pattern](https://redux.js.org/style-guide "read style guide docs")
