@@ -1,22 +1,22 @@
+// **hooks 
 import { useEffect } from 'react';
 import { useFetchRandomQuoteQuery } from './features/quotes/qouteApiSlice';
 import { Quote } from './features/quotes/qouteApiSlice';
 
-// components
+// **components
 import NavBar from './components/NavBar'
 import ErrorRow from './components/Error';
 import Tweet from './components/Tweet';
 
-// react bootstrap components
+// **react bootstrap components
 import Button from 'react-bootstrap/Button';
 import Container from 'react-bootstrap/Container';
 
-// styles 
-import './App.css'
+// **styles 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
-// react icons
+// **react icons
 import { TbHandClick } from 'react-icons/tb';
 import RandomQuote from './components/RandomQuote';
 

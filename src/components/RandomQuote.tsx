@@ -1,6 +1,10 @@
+// **react
 import React from 'react'
+
+// **react-bootstrap
 import Row from 'react-bootstrap/esm/Row'
 
+// **define the props interface
 interface RandomQuoteProps {
   quote: {
     content: string;
