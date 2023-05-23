@@ -2,18 +2,23 @@ import { useEffect } from 'react';
 import { useFetchRandomQuoteQuery } from './features/quotes/qouteApiSlice';
 import { Quote } from './features/quotes/qouteApiSlice';
 
+// components
+import NavBar from './components/NavBar'
+import ErrorRow from './components/Error';
+import Tweet from './components/Tweet';
+
+// react bootstrap components
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
 
 // styles 
 import './App.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Button from 'react-bootstrap/Button';
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import NavBar from './components/NavBar'
+
 
 // react icons
-import { FaRetweet } from 'react-icons/fa';
 import { TbHandClick } from 'react-icons/tb';
+import RandomQuote from './components/RandomQuote';
 
 
 const App = () => {
@@ -38,42 +43,16 @@ const App = () => {
         <Container className="wrapper d-flex flex-column justify-content-between lh-sm">
           {
             error ?
-            ( 
-              <Row>
-                <p className="fs-2 fw-bolder">Oh no, there was an error</p>
-              </Row> 
-            )
+            <ErrorRow /> 
             :
-            (
-                <>
-                  <Row className="justify-content-start text-wrap">
-                    {/* id-text - On first load, my quote machine displays a random quote in the element */}
-                    { quote?.content}
-                  </Row>
-                  <Row className="justify-content-end fw-semibold fst-italic">
-                    {/* id-author  - On first load, my quote machine displays the random quote's author */}
-                    -- { quote?.author } --
-                  </Row>
-                  <Button 
-                    // id-new-quote
-                    className="text-uppercase fw-bold"
-                    variant="outline-dark"
-                    onClick={handleClick}
-                  >
-                    new quote <TbHandClick />
-                  </Button>
-                  <a 
-                    // id tweet-quote
-                    className="btn btn-outline-primary text-uppercase fw-bold" 
-                    href="twitter.com/intent/tweet"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {/* tweet the current tweet */}
-                    tweet <FaRetweet />
-                  </a>
-                </>
-            )
+            <>
+              <RandomQuote quote={quote}/>
+              <Button className="text-uppercase fw-bold" variant="outline-dark" onClick={handleClick}>
+                new quote <TbHandClick />
+              </Button>
+              <Tweet />
+            </>
+            
           }
         </Container>
       </main>
