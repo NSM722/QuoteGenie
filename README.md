@@ -7,6 +7,8 @@ A [Random Quotes](https://github.com/lukePeavey/quotable "Random Quotes API") Ge
 `https://api.quotable.io/quotes/random`;
 ```
 
+Check out the [QuoteGenie live site demo](https://quote-genie-machine.netlify.app "view site")
+
 When the page loads, the quote machine displays a random quote along with the author
 
 When the `NEW QUOTE` button is clicked, the quote machine will fetch a new quote and author
