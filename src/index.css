@@ -7,14 +7,16 @@ body {
 
 .main-wrapper {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 60vh; /* Adjust as needed */
+    justify-content: center; 
+    align-items: center; 
+    height: auto;
+    margin-top: 4em;
 }
 
 .wrapper {
     max-width: 100%;
     width: 750px;
+    height: 100%;
     border: 3px solid #b6bdbd;
     height: 60%;
     margin: 0 1.5em;
@@ -29,5 +31,5 @@ button,
 a {
     cursor: pointer;
     max-width: 100%;
-    width: 30%;
+    width: 150px;
 }

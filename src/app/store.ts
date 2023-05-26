@@ -9,9 +9,9 @@ export const store = configureStore({
     // Add the generated reducer as a specific top-level slice
     [quoteApi.reducerPath]: quoteApi.reducer,
   },
-  // Adding the custom genrated api middleware to the store which 
-  // enables caching, invalidation, polling,
-  // and other useful features of `rtk-query`
+  // Adding the custom genrated api middleware
+  // to the store which enables caching, invalidation,
+  // polling and other useful features of `rtk-query`
   middleware: (getDefaultMiddleWare) => {
     return getDefaultMiddleWare().concat(quoteApi.middleware)
   }
