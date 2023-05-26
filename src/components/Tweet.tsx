@@ -4,7 +4,6 @@ import React from 'react'
 // **react-icons
 import { FaRetweet } from 'react-icons/fa';
 
-
 const Tweet: React.FC = () => {
   return (
     <a 

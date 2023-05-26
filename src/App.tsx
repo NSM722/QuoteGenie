@@ -15,7 +15,6 @@ import Container from 'react-bootstrap/Container';
 // **styles 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-
 // **react icons
 import { TbHandClick } from 'react-icons/tb';
 import RandomQuote from './components/RandomQuote';
@@ -46,14 +45,14 @@ const App = () => {
             <ErrorRow /> 
             :
             <>
-              <RandomQuote quote={quote}/>
-              <Button className="text-uppercase fw-bold" variant="outline-dark" onClick={handleClick}>
-                new quote <TbHandClick />
-              </Button>
-              <Tweet />
+              <RandomQuote quote={quote} />
             </>
             
           }
+          <Button className="text-uppercase fw-bold mb-2" variant="outline-dark" onClick={handleClick}>
+            new quote <TbHandClick />
+          </Button>
+          <Tweet />
         </Container>
       </main>
     </>
