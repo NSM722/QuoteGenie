@@ -11,8 +11,9 @@ import NavBar from './NavBar'
  * and the second parameter is a function that contains the test code
  */
 describe('<NavBar />', () => {
-  it('renders', () => {
+  it('renders the component with the brand text "QuoteGenie"', () => {
     // see: https://on.cypress.io/mounting-react
-    cy.mount(<NavBar />)
+    cy.mount(<NavBar />);
+    cy.contains('QuoteGenie').should('exist')
   })
 })
