@@ -26,3 +26,52 @@ One can retweet a quote via the `TWEET` button
 ## Recommended Patterns
 
 [Redux Ducks Pattern](https://redux.js.org/style-guide "read style guide docs")
+
+## Testing
+
+A Quick start testing guide with [Cypress for React App](https://docs.cypress.io/guides/component-testing/react/quickstart "read docs")
+
+Follow [this link for writing tests in Typescript](https://docs.cypress.io/guides/tooling/typescript-support "read docs")
+
+```js
+// example of the App.tsx file is being mounted
+import App from "./App";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+
+describe("<App />", () => {
+  it("renders component and clicking on the new quote button fetches a new quote", () => {
+    // see: https://on.cypress.io/mounting-react
+    cy.mount(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+  });
+});
+```
+
+### API Testing
+
+```js
+import App from "./App";
+import { Provider } from "react-redux";
+import { store } from "./app/store";
+
+describe("<App />", () => {
+  it("renders component and tests the api GET request along with data length of 1", () => {
+    // see: https://on.cypress.io/mounting-react
+    cy.mount(
+      <Provider store={store}>
+        <App />
+      </Provider>
+    );
+    cy.request({
+      method: "GET",
+      url: "https://api.quotable.io/quotes/random",
+    }).then((response) => {
+      expect(response.body).have.lengthOf(1);
+    });
+  });
+});
+```
